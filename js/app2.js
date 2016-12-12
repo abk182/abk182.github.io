@@ -57,7 +57,7 @@ function getOutput (item){
 	'</div>'+
 
 	'</li>'+
-	'<div class="video-akordeon" style="display:none; width=100%; height=500px;">'+
+	'<div class="video-akordeon" style="display:none; width:100%; height:500px;">'+
 	'<iframe width=100% height=500px src="https://www.youtube.com/embed/'+videoId+'" frameborder="0" allowfullscreen></iframe> '+
 	'</div>'
 	return output;
