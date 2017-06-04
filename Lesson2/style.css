@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.left{
+  float:left;
+  background: #d1e2ff;
+}
+
+.right{
+  display: inline-block;
+  background: #0152aa;
+  color:white;
+  padding: 20px 10px 5px 10px;
+}
+
+li{
+  font-weight: bold;
+  color: #0152aa;
+  min-width: 200px;
+  padding: 10px 10px;
+  list-style: none;
+  border-bottom: 1px #aaccff solid;
+}
+
+li:last-child{
+  border-bottom: 0;
+}
+
+p{
+  text-align: right;
+  padding: 5px 0;
+  margin: 0;
+}
+
+input{
+  padding: 5px;
+  margin: 5px 0;
+}
+
+#add, #profit {
+  color: #003088;
+  background: #d1e2ff;
+  border: 0;
+  width: 48.5%;
+}
+
+#add:hover, #profit:hover{
+  background: #777777;
+}
+
+#company-name, #price {
+  border:0;
+}
