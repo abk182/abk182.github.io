@@ -1,0 +1,73 @@
+body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+section{
+  display: inline-block;
+  background: #0152aa;
+  max-width: auto;
+}
+
+.left{
+  float:left;
+  background: #d1e2ff;
+}
+
+.right{
+  display: inline-block;
+  background: #0152aa;
+  color:white;
+  padding: 20px 10px 5px 10px;
+}
+
+tbody:last-child tr td{
+  border-bottom:0;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+.tdName{
+  font-weight: bold;
+  color: #0152aa;
+  min-width: 150px;
+  padding: 10px 10px;
+  list-style: none;
+  border-bottom: 1px #aaccff solid;
+}
+
+.tdPrice{
+  padding: 10px 10px;
+  border-bottom: 1px  #d1e2ff solid;
+  background: #aaccff;
+  text-align: right;
+}
+
+p{
+  text-align: right;
+  padding: 5px 0;
+  margin: 0;
+}
+
+input{
+  padding: 5px;
+  margin: 5px 0;
+}
+
+#add, #profit {
+  color: #003088;
+  background: #d1e2ff;
+  border: 0;
+  width: 48.5%;
+}
+
+#add:hover, #profit:hover{
+  background: #99ccff;
+}
+
+#company-name, #price {
+  border:0;
+}
