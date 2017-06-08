@@ -34,13 +34,17 @@ function render() {
 render();
 
 document.getElementById('add').addEventListener('click', function() {
-	console.log(company_name);
-	console.log(price);
-	companies.push({
-		name: company_name.value,
-		price: price.value
-	});
-	render();
+	if(company_name.value === "" || price.value === ""){
+		alert('Введите пожалуйста что-нибудь');
+	} else {
+		console.log(company_name);
+		console.log(price);
+		companies.push({
+			name: company_name.value,
+			price: price.value
+		});
+		render();
+	}
 });
 
 //Самая маленькая стоймость =
