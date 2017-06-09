@@ -9,7 +9,7 @@ for (var i = 0; i < list.length; i++){
 	list[i].addEventListener('click', function(e){
 		console.log(e);
 		NewCoffeeMachine.setCoffee(e.target.dataset.name);
-		NewCoffeeMachine.resultContainer;
+		NewCoffeeMachine.fillCoffee(resultContainer);
 	});
 }
 
