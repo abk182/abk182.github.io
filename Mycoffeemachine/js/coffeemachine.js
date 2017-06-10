@@ -44,6 +44,11 @@ function CoffeeMachine(coffee){
   }
 
   this.coffeeReady = function(){
-    document.write('Nalil te '+this.coffeeSelected.name);
+    var coffeeSelected = this.coffeeSelected;
+    var cashGiveBack = this.cashGiveBack;
+    setTimeout(function(){
+    document.write('Налил тебе '+coffeeSelected.name+'. Сдача '+ cashGiveBack+' рублей');
+    console.log(coffee.name);
+    ;},3000);
   }
 }

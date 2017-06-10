@@ -29,11 +29,14 @@ for (i=0;i<=coffee.length;i++){
 }
 
 document.getElementById('btn').addEventListener('click',function(){
-		if(money > MyCoffeeMachine.coffeeSelected.price){
+	if(MyCoffeeMachine.coffeeSelected != 0){
+		console.log(MyCoffeeMachine.cashPaid );
+		if(money >= MyCoffeeMachine.coffeeSelected.price){
 			MyCoffeeMachine.Pay(money);
-			setTimeout(function(){MyCoffeeMachine.coffeeReady()},3000);
+			MyCoffeeMachine.coffeeReady();
+			money=0;
 		}else{
-			alert('gde dengi');
-		}
-		money=0;
+			alert('Недостаточно золото');
+		}}else{alert('Выбирите кофе')}
+
 });
