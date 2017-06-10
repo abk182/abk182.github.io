@@ -71,3 +71,7 @@ input{
 #company-name, #price {
   border:0;
 }
+
+.selected{
+  background: red;
+}

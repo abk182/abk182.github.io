@@ -33,6 +33,7 @@ var coffee = [
 
 function CoffeeMachine(){
 	this.coffeeList= coffee;
+	console.log(this.coffeeList);
 	this.money = 0;	//кэш
 	this.deliver = 0; //сдача
 
@@ -45,13 +46,13 @@ function CoffeeMachine(){
 		container.innerHTML='';
 		coffee.forEach(function(item){
 			container.innerHTML += (
-					`<li> 
-						<p>${item.neme}</p> 
-						<input 
-							type="submit" 
-							data-name=${item.name} 
-							value="Налить" 
-							class="coffeeItem"> 
+					`<li>
+						<p>${item.name}</p>
+						<input
+							type="submit"
+							data-name=${item.name}
+							value="Налить"
+							class="coffeeItem">
 					</li>` //` = ''
 					)
 		});
@@ -59,6 +60,7 @@ function CoffeeMachine(){
 
 	this.setCoffee = function(coffee){
 		this.selectedCoffee = coffee;
+		console.log(this.selectedCoffee);
 	}
 
 	this.fillCoffee = function(){

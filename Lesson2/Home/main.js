@@ -25,7 +25,6 @@ function render() {
 	container.innerHTML = '';
 	for(var i = 0; i < companies.length; i++) {
 		companies[i]['adress'] = "Mashinostroitelnaya 91";
-		//console.log(companies[i]);
 		container.innerHTML += '<td class=tdName>' + companies[i].name + '</td>'+
 		'<td class=tdPrice>' + companies[i].price + '</td>';
 	}
@@ -33,8 +32,9 @@ function render() {
 
 render();
 
+//Добавляет запись в таблицу
 document.getElementById('add').addEventListener('click', function() {
-	if(company_name.value === "" || price.value === ""){
+	if(company_name.value == "" || price.value == ""){
 		alert('Введите пожалуйста что-нибудь');
 	} else {
 		console.log(company_name);
@@ -46,6 +46,8 @@ document.getElementById('add').addEventListener('click', function() {
 		render();
 	}
 });
+
+//Удаление
 
 //Самая маленькая стоймость =
 function Sort() {
@@ -64,6 +66,7 @@ companies.reverse();
 render();
 Sort();
 });
+
 
 
 

@@ -1,0 +1,11 @@
+.coffeeItem{
+  width:100px;
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding: 0;
+}
