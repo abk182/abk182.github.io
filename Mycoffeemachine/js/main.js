@@ -35,7 +35,7 @@ document.getElementById('btn').addEventListener('click',function(){
 			MyCoffeeMachine.coffeeReady();
 			money=0;
 		}else{
-			alert('Недостаточно золото');
+			alert('Недостаточно золота');
 		}}else{alert('Выбирите кофе')}
 
 });
