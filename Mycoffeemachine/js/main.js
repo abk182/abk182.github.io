@@ -30,7 +30,6 @@ for (i=0;i<=coffee.length;i++){
 
 document.getElementById('btn').addEventListener('click',function(){
 	if(MyCoffeeMachine.coffeeSelected != 0){
-		console.log(MyCoffeeMachine.cashPaid );
 		if(money >= MyCoffeeMachine.coffeeSelected.price){
 			MyCoffeeMachine.Pay(money);
 			MyCoffeeMachine.coffeeReady();

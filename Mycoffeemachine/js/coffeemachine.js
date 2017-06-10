@@ -38,7 +38,6 @@ function CoffeeMachine(coffee){
   this.Pay = function(money_){
     this.cashPaid = money_;
     this.cashGiveBack = money_ - +this.coffeeSelected.price;
-    document.getElementById('money-show').innerHTML="сдача "+ this.cashGiveBack;
     console.log(this.cashPaid);
     console.log(this.cashGiveBack);
   }
@@ -48,7 +47,6 @@ function CoffeeMachine(coffee){
     var cashGiveBack = this.cashGiveBack;
     setTimeout(function(){
     document.write('Налил тебе '+coffeeSelected.name+'. Сдача '+ cashGiveBack+' рублей');
-    console.log(coffee.name);
     ;},3000);
   }
 }
