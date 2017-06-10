@@ -38,11 +38,12 @@ function CoffeeMachine(coffee){
   this.Pay = function(money_){
     this.cashPaid = money_;
     this.cashGiveBack = money_ - +this.coffeeSelected.price;
+    document.getElementById('money-show').innerHTML="сдача "+ this.cashGiveBack;
     console.log(this.cashPaid);
     console.log(this.cashGiveBack);
   }
 
   this.coffeeReady = function(){
-
+    document.write('Nalil te '+this.coffeeSelected.name);
   }
 }

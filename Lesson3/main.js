@@ -16,10 +16,7 @@ function GetNumber (number, callback) {
 
 var newNumber = 0;
 
-GetNumber(10, function(n){
-	newNumber = n;
-	console.log(n);
-});
+GetNumber(10, function(n){console.log(n);} );
 
 console.log(newNumber);
 
@@ -61,5 +58,3 @@ var lada = new Car('granta',10000);
 var lexus = new Car('rx400',2000);
 
 console.log(lada.name);
-
-

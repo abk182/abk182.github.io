@@ -9,3 +9,66 @@ li{
 ul{
   padding: 0;
 }
+
+.money-bar{
+
+  width:120px;
+  float:right;
+}
+
+#_1{
+  background: url('../img/1450325266_1-rubl.jpg');
+  color: transparent;
+  background-size: 100%;
+  min-width:50px;
+  height: 50px;
+  border:0;
+}
+#_2{
+  background: url('../img/2016-2rub-r.jpg');
+  color: transparent;
+  background-size: 100%;
+  min-width:50px;
+  height: 50px;
+  border:0;
+}
+#_5{
+  background: url('../img/19981226sr.jpg');
+  color: transparent;
+  background-size: 105%;
+  min-width:50px;
+  height: 50px;
+  border:0;
+}
+#_10{
+  background: url('../img/10r2012_002.jpg');
+  color: transparent;
+  background-size: 100%;
+  min-width:50px;
+  height: 50px;
+  border:0;
+}
+#_50{
+  background: url('../img/Banknote_50_rubles_(1997)_back.jpg');
+  color: transparent;
+  background-size: 100%;
+  min-width:115px;
+  height: 50px;
+  border:0;
+}
+#_100{
+  background: url('../img/100-2004_01.jpg');
+  color: transparent;
+  background-size: 100%;
+  min-width:115px;
+  min-height: 50px;
+  border:0;
+}
+#_500{
+  background: url('../img/500R_01_rv.jpg');
+  color: transparent;
+  background-size: 100%;
+  min-width:115px;
+  height: 50px;
+  border:0;
+}

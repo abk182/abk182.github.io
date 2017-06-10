@@ -7,7 +7,6 @@ var coffee = [
 	new Coffee("Макиато",45),
 ];
 
-
 var MyCoffeeMachine = new CoffeeMachine(coffee);
 MyCoffeeMachine.CoffeeRender();
 
@@ -30,7 +29,11 @@ for (i=0;i<=coffee.length;i++){
 }
 
 document.getElementById('btn').addEventListener('click',function(){
-		MyCoffeeMachine.Pay(money);
+		if(money > MyCoffeeMachine.coffeeSelected.price){
+			MyCoffeeMachine.Pay(money);
+			setTimeout(function(){MyCoffeeMachine.coffeeReady()},3000);
+		}else{
+			alert('gde dengi');
+		}
 		money=0;
-		document.getElementById('money-show').innerHTML="сдача "+ MyCoffeeMachine.cashGiveBack;
 });
