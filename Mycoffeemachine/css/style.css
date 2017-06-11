@@ -1,17 +1,59 @@
+body{font-family: sans-serif;margin: 0;padding: 0;}
+
 .coffeeItem{
-  width:100px;
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border: 0;
+  padding: 10px;
+  text-align: left;
+}
+.coffeeItem:hover{background: #99eebb;}
+.coffeeItem:active{background: #88ddaa;}
+.coffeePrice{
+  display: block;
+  position: relative;
+  top:-28px;
+  right: -122px;
+  width: 0;
+  margin: 0
 }
 
 li{
+  width: 100%;
+  height: 40px;
   list-style: none;
+  border: 0;
+  border-bottom: 1px solid white;
 }
 
-ul{
-  padding: 0;
+.coffee-machine{
+  width:150px;
+  border: 1px solid #dddddd;
+  margin: 20px;
+  background:#aabfdc;
 }
+
+#coffee-container{
+  padding: 0;
+  margin: 0;
+  width:100%;
+  background: inherit;
+}
+
+#btn{
+  border: 0;
+  background: #ddaa99;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid white;
+}
+#btn:hover{background: #cc9988;}
+#btn:active{background: #bb8877;}
+
+.coffeeItem:focus, #btn:focus{outline: 0;}
 
 .money-bar{
-
   width:120px;
   float:right;
 }
