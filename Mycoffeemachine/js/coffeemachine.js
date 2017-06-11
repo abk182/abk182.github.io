@@ -34,19 +34,29 @@ function CoffeeMachine(coffee){
     console.log(this.coffeeSelected);
   }
 
+  //сбор наличных
+  this.MoneyCollect = function(money){
+    this.cashPaid += money;
+    document.getElementById('money-show').innerHTML= this.cashPaid;
+  };
+
   //ввод наличных
-  this.Pay = function(money_){
-    this.cashPaid = money_;
-    this.cashGiveBack = money_ - +this.coffeeSelected.price;
+  this.Pay = function(){
+    this.cashGiveBack = this.cashPaid - +this.coffeeSelected.price;
     console.log(this.cashPaid);
     console.log(this.cashGiveBack);
   }
 
-  this.coffeeReady = function(){
+  this.CoffeeReady = function(){
     var coffeeSelected = this.coffeeSelected;
     var cashGiveBack = this.cashGiveBack;
+    document.getElementById('money-show').innerHTML = 'Наливаю';
     setTimeout(function(){
-    document.write('Налил тебе '+coffeeSelected.name+'. Сдача '+ cashGiveBack+' рублей');
-    ;},3000);
+      document.getElementById('money-show').innerHTML = 'Налил тебе '+
+        coffeeSelected.name+'. Сдача '+
+        cashGiveBack+' рублей';
+      },3000);
+    this.cashPaid = 0;
+    this.cashGiveBack = 0;
   }
 }

@@ -16,7 +16,10 @@ function GetNumber (number, callback) {
 
 var newNumber = 0;
 
-GetNumber(10, function(n){console.log(n);} );
+GetNumber(10, function(n){
+	newNumber = n;
+	console.log(n);
+});
 
 console.log(newNumber);
 

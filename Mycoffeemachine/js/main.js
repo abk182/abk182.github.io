@@ -5,6 +5,7 @@ var coffee = [
 	new Coffee("Чай",25),
 	new Coffee("Эспрессо",35),
 	new Coffee("Макиато",45),
+	new Coffee("МакиатоСупер",50),
 ];
 
 var MyCoffeeMachine = new CoffeeMachine(coffee);
@@ -19,22 +20,20 @@ for (i=0;i<coffee.length;i++){
 		})
 }
 
-var money=0;//накапливает сумму для пэй по нажатию
-for (i=0;i<=coffee.length;i++){
+// пробег по купюрам 6 шт
+for (i=0;i<=6;i++){
 	document.getElementsByClassName('rubles')[i].addEventListener('click',
 		function(mouse){
-			money += +mouse.target.value;
-			document.getElementById('money-show').innerHTML= money;
-	});
+			MyCoffeeMachine.MoneyCollect(+mouse.target.value);
+		});
 }
 
 document.getElementById('btn').addEventListener('click',function(){
 	if(MyCoffeeMachine.coffeeSelected != 0){
-		if(money >= MyCoffeeMachine.coffeeSelected.price){
-			MyCoffeeMachine.Pay(money);
-			MyCoffeeMachine.coffeeReady();
-			money=0;
-		}else{
+		if(MyCoffeeMachine.cashPaid >= MyCoffeeMachine.coffeeSelected.price){
+			MyCoffeeMachine.Pay();
+			MyCoffeeMachine.CoffeeReady();
+			}else{
 			alert('Недостаточно золота');
 		}}else{alert('Выбирите кофе')}
 
