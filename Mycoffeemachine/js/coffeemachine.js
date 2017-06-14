@@ -62,6 +62,9 @@ function CoffeeMachine(coffee){
   this.CashGiveBackFunction = function(){
     alert('Сдача ' + this.cashGiveBack);
     this.cashGiveBack = 0;
+    this.cashPaid = 0;
+    console.log(this.cashPaid);
+    console.log(this.cashGiveBack);
   }
 
 }
