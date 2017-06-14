@@ -36,5 +36,8 @@ document.getElementById('btn').addEventListener('click',function(){
 			}else{
 			alert('Недостаточно золота');
 		}}else{alert('Выбирите кофе')}
+});
 
+document.getElementById('btnback').addEventListener('click', function(){
+	MyCoffeeMachine.CashGiveBackFunction();
 });

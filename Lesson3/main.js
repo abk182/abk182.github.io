@@ -14,30 +14,26 @@ function GetNumber (number, callback) {
 	}, 1000);
 }
 
-var newNumber = 0;
-
-GetNumber(10, function(n){
-	newNumber = n;
-	console.log(n);
-});
+var newNumber = 100;
+var callback = function(n){ newNumber = n;console.log(newNumber);}
+GetNumber(10, callback);
 
 console.log(newNumber);
 
 //HOASTING!!!
 
-var names = ['Lala','asd','sdf'];
-var x = 0;
-
+// var names = ['Lala','asd','sdf'];
+// var x = 0;
 // while (x != names.length) {
 // 	console.log(names[x]);
 // 	x++;
 // }
+// do{
+//  	console.log(names[x]);
+// 	x++;
+// }while(x < names.length);
 
-do{
- 	console.log(names[x]);
-	x++;
-}while(x < names.length);
-
+//переназничение функции в самой функции
 function display () {
 	console.log('Privet');
 	display = function () {
@@ -45,8 +41,8 @@ function display () {
 	}
 }
 
-display();
-display();
+//display();
+//display();
 
 function Car(name_, mileage_) {
 	this.name = name_;

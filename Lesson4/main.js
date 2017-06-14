@@ -18,7 +18,7 @@ var user1 = new User('Timur', 12);
 
 //console.log(user1);
 
-//Инкапсуляция 
+//Инкапсуляция
 
 function Employee(_name,_age,_comp){
 	User.call(this, _name,_age);
@@ -52,7 +52,7 @@ Function.prototype.hello = function(){
 
 function display(data) {
 	console.log(data);
-	this.name = 'name';
+	this.name = 'вфывфыв';
 	console.log(this);
 	this.go();
 }
@@ -67,5 +67,3 @@ var arr = ['someText']
 display.apply(user,arr);
 
 display.call(employee,'Text');
-
-

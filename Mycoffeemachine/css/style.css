@@ -51,11 +51,27 @@ li{
 #btn:hover{background: #cc9988;}
 #btn:active{background: #bb8877;}
 
+#btnback{
+  border: 0;
+  background: #ddaa99;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid white;
+}
+#btnback:hover{background: #cc9988;}
+#btnback:active{background: #bb8877;}
+
 .coffeeItem:focus, #btn:focus{outline: 0;}
 
 .money-bar{
   width:120px;
   float:right;
+}
+#money-show{
+  border-bottom: 1px solid white;
+  padding: 10px;
+  margin:0;
+  min-height: 60px;
 }
 
 #_1{

@@ -37,7 +37,7 @@ function CoffeeMachine(coffee){
   //сбор наличных
   this.MoneyCollect = function(money){
     this.cashPaid += money;
-    document.getElementById('money-show').innerHTML= this.cashPaid;
+    document.getElementById('money-show').innerHTML= 'Внесена сумма ' + this.cashPaid;
   };
 
   //ввод наличных
@@ -52,11 +52,16 @@ function CoffeeMachine(coffee){
     var cashGiveBack = this.cashGiveBack;
     document.getElementById('money-show').innerHTML = 'Наливаю';
     setTimeout(function(){
-      document.getElementById('money-show').innerHTML = 'Налил тебе '+
-        coffeeSelected.name+'. Сдача '+
+      document.getElementById('money-show').innerHTML =
+        coffeeSelected.name+' готово! Остаток '+
         cashGiveBack+' рублей';
       },3000);
-    this.cashPaid = 0;
+    this.cashPaid = this.cashGiveBack;
+  }
+
+  this.CashGiveBackFunction = function(){
+    alert('Сдача ' + this.cashGiveBack);
     this.cashGiveBack = 0;
   }
+
 }
