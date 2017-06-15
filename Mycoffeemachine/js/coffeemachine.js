@@ -1,6 +1,7 @@
 function Coffee(name_,price_) {
   this.name=name_;
   this.price=price_;
+  this.sugar=5;
 }
 
 function CoffeeMachine(coffee){
@@ -9,10 +10,9 @@ function CoffeeMachine(coffee){
   this.coffeeSelected='';
   this.cashPaid=0;
   this.cashGiveBack=0;
-  this.sugarAdd='';
 
   //Вывод кнопок
-  this.CoffeeRender = function(){
+  this.coffeeRender = function(){
     this.coffeeList.forEach(function(item,index){
       Coffee.call(this,coffee[index].name,coffee[index].price);
       //console.log(this.name,this.price);
@@ -29,42 +29,42 @@ function CoffeeMachine(coffee){
   }
 
   //Выбор кофе
-  this.CoffeeSelect = function(coffee){
+  this.coffeeSelect = function(coffee){
     this.coffeeSelected = coffee;
     console.log(this.coffeeSelected);
   }
 
   //сбор наличных
-  this.MoneyCollect = function(money){
+  this.moneyCollect = function(money){
     this.cashPaid += money;
     document.getElementById('money-show').innerHTML= 'Внесена сумма ' + this.cashPaid;
   };
 
   //ввод наличных
-  this.Pay = function(){
+  this.pay = function(){
     this.cashGiveBack = this.cashPaid - +this.coffeeSelected.price;
-    console.log(this.cashPaid);
-    console.log(this.cashGiveBack);
+    CoffeeReady.call(this,this.coffeeSelected,this.cashGiveBack);
   }
 
-  this.CoffeeReady = function(){
-    var coffeeSelected = this.coffeeSelected;
-    var cashGiveBack = this.cashGiveBack;
+  var CoffeeReady = function(coffeeSelected,cashGiveBack){
     document.getElementById('money-show').innerHTML = 'Наливаю';
     setTimeout(function(){
       document.getElementById('money-show').innerHTML =
         coffeeSelected.name+' готово! Остаток '+
         cashGiveBack+' рублей';
       },3000);
-    this.cashPaid = this.cashGiveBack;
+    this.cashPaid = this.cashGiveBack; //внесенная сумма принимает значение остатка для последующих заказов кофе
   }
 
-  this.CashGiveBackFunction = function(){
-    alert('Сдача ' + this.cashGiveBack);
+  this.cashGiveBackFunction = function(){
+    alert('Сдача ' + this.cashPaid);//
     this.cashGiveBack = 0;
     this.cashPaid = 0;
-    console.log(this.cashPaid);
-    console.log(this.cashGiveBack);
+    document.getElementById('money-show').innerHTML = 'Добро пожаловать!'
+  }
+
+  var SugarAdd = function(){
+
   }
 
 }
