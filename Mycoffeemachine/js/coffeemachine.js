@@ -15,7 +15,6 @@ function CoffeeMachine(coffee){
   this.coffeeRender = function(){
     this.coffeeList.forEach(function(item,index){
       Coffee.call(this,coffee[index].name,coffee[index].price);
-      //console.log(this.name,this.price);
       document.getElementById('coffee-container').innerHTML += (
         `<li>
             <input
@@ -29,42 +28,63 @@ function CoffeeMachine(coffee){
   }
 
   //Выбор кофе
-  this.coffeeSelect = function(coffee){
-    this.coffeeSelected = coffee;
+  this.coffeeSelect = function(coffeeSel){
+    this.coffeeSelected = coffeeSel;
     console.log(this.coffeeSelected);
+    document.getElementById('displayCoffee').innerHTML = this.coffeeSelected.name;
+    Sugar.call(this);
   }
 
   //сбор наличных
   this.moneyCollect = function(money){
     this.cashPaid += money;
-    document.getElementById('money-show').innerHTML= 'Внесена сумма ' + this.cashPaid;
+    document.getElementById('displayMoney').innerHTML = 'Внесена сумма ' + this.cashPaid;
   };
 
-  //ввод наличных
+  //оплата кофе
   this.pay = function(){
     this.cashGiveBack = this.cashPaid - +this.coffeeSelected.price;
     CoffeeReady.call(this,this.coffeeSelected,this.cashGiveBack);
   }
 
+  //готовит кофе считает деньги
   var CoffeeReady = function(coffeeSelected,cashGiveBack){
-    document.getElementById('money-show').innerHTML = 'Наливаю';
+    document.getElementById('displayCoffee').innerHTML = 'Наливаю';
+    document.getElementById('displayMoney').innerHTML ='';
     setTimeout(function(){
-      document.getElementById('money-show').innerHTML =
-        coffeeSelected.name+' готово! Остаток '+
+      document.getElementById('displayCoffee').innerHTML =
+        coffeeSelected.name+' готово!';
+      document.getElementById('displayMoney').innerHTML='Остаток '+
         cashGiveBack+' рублей';
       },3000);
     this.cashPaid = this.cashGiveBack; //внесенная сумма принимает значение остатка для последующих заказов кофе
   }
 
+  //выдает сдачу
   this.cashGiveBackFunction = function(){
     alert('Сдача ' + this.cashPaid);//
     this.cashGiveBack = 0;
     this.cashPaid = 0;
-    document.getElementById('money-show').innerHTML = 'Добро пожаловать!'
+    document.getElementById('displayCoffee').innerHTML = 'Добро пожаловать!';
+    document.getElementById('displayMoney').innerHTML = '';
+    console.log(this.coffeeList);
   }
 
-  var SugarAdd = function(){
-
+  //Изменение кол-ва сахара в выбранном кофе
+  var Sugar = function(){
+    document.getElementById('displayCoffee').innerHTML += (`
+      </br>Сахар
+      <input type='submit' value='<' id='sugarDec'>
+      <span id='sugar'>${this.coffeeSelected.sugar}</span>
+      <input type='submit' value='>' id='sugarInc'>
+      `);
+    document.getElementById('sugarInc').addEventListener('click',function(){
+      this.coffeeSelected.sugar++;
+      document.getElementById('sugar').innerHTML=this.coffeeSelected.sugar;
+    }.bind(this))
+    document.getElementById('sugarDec').addEventListener('click',function(){
+      this.coffeeSelected.sugar--;
+      document.getElementById('sugar').innerHTML=this.coffeeSelected.sugar;
+    }.bind(this))
   }
-
 }

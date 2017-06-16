@@ -18,6 +18,8 @@ body{font-family: sans-serif;margin: 0;padding: 0;}
   width: 0;
   margin: 0
 }
+.coffeeSugar{
+}
 
 li{
   width: 100%;
@@ -67,11 +69,11 @@ li{
   width:120px;
   float:right;
 }
-#money-show{
+#display{
   border-bottom: 1px solid white;
   padding: 10px;
   margin:0;
-  min-height: 60px;
+  min-height: 100px;
 }
 
 #_1{
