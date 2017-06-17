@@ -11,12 +11,18 @@ var coffee = [
 var MyCoffeeMachine = new CoffeeMachine(coffee);
 MyCoffeeMachine.coffeeRender();
 
+$('#coffeeAdd').on('click',function(){
+  var name = $('#coffeeNameAdd').val();
+  var price = $('#coffeePriceAdd').val();
+  console.log(name);
+  MyCoffeeMachine.newCoffee(name,price);
+});
 
 //определяет выделенный кофе
-for (i=0;i<coffee.length;i++){
+for (i=0;i< MyCoffeeMachine.coffeeList.length;i++){
   document.getElementsByClassName('coffeeItem')[i].addEventListener('click',
     function(mouse) {
-      MyCoffeeMachine.coffeeSelect(coffee[mouse.target.dataset.index]);
+      MyCoffeeMachine.coffeeSelect(MyCoffeeMachine.coffeeList[mouse.target.dataset.index]);
    	})
 }
 
@@ -38,5 +44,7 @@ document.getElementById('btn').addEventListener('click',function(){
 
 document.getElementById('btnback').addEventListener('click', function(){
   MyCoffeeMachine.cashGiveBackFunction();
-  console.log(coffee);
+  console.log(MyCoffeeMachine.coffeeList);
 });
+
+

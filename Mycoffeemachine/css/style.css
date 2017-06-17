@@ -29,7 +29,15 @@ li{
   border-bottom: 1px solid white;
 }
 
-.coffee-machine{
+#coffeeNameAdd, #coffeePriceAdd{
+  width: 100%;
+  border:0;
+  background: inherit;
+  border-bottom: 1px white solid;
+  padding: 10px;
+}
+
+#coffee-machine{
   width:150px;
   border: 1px solid #dddddd;
   margin: 20px;

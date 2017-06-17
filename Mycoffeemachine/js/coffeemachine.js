@@ -5,7 +5,6 @@ function Coffee(name_,price_) {
 }
 
 function CoffeeMachine(coffee){
-
   this.coffeeList=coffee;
   this.coffeeSelected='';
   this.cashPaid=0;
@@ -13,27 +12,44 @@ function CoffeeMachine(coffee){
 
   //Вывод кнопок
   this.coffeeRender = function(){
+    document.getElementById('coffee-container').innerHTML='';
     this.coffeeList.forEach(function(item,index){
-      Coffee.call(this,coffee[index].name,coffee[index].price);
       document.getElementById('coffee-container').innerHTML += (
         `<li>
             <input
             type="submit"
             data-index=${index}
-            value="${this.name}"
+            value="${item.name}"
             class="coffeeItem">
-            <span class='coffeePrice'>${this.price}</span>
+            <span class='coffeePrice'>${item.price}</span>
         </li>`);
     });
-    document.getElementById('coffee-container').innerHTML += (`
-      <li>
-        <input
-        type="input"
-        data-index=${1212}
-        value=""
-        class="coffeeItem">
-        <span class='coffeePrice'>${this.price}</span>
-      </li>`);
+    document.getElementById('coffee-machine').innerHTML += (`
+        <input type="submit" id="btn" value="Налить">
+        <input type="submit" id="btnback" value="Выдать сдачу">
+        <input type='text' id='coffeeNameAdd' placeholder="Название кофе">
+        <input type='number' id ='coffeePriceAdd' placeholder="Цена кофе">
+        <input type='submit' class='coffeeItem' id='coffeeAdd' value = 'Добавить кофе'>
+        `);
+  }
+
+  //Добавление кофе
+  this.newCoffee = function(name_,price_){
+    var newCof = {
+      name:name_,
+      price:price_,
+      sugar:5,
+    }
+    this.coffeeList.push(newCof);
+    document.getElementById('coffee-container').innerHTML += (
+        `<li>
+            <input
+            type="submit"
+            value="${newCof.name}"
+            class="coffeeItem">
+            <span class='coffeePrice'>${newCof.price}</span>
+        </li>`);
+    console.log(this.coffeeList);
   }
 
   //Выбор кофе
@@ -76,7 +92,6 @@ function CoffeeMachine(coffee){
     this.cashPaid = 0;
     document.getElementById('displayCoffee').innerHTML = 'Добро пожаловать!';
     document.getElementById('displayMoney').innerHTML = '';
-    console.log(this.coffeeList);
   }
 
   //Изменение кол-ва сахара в выбранном кофе
