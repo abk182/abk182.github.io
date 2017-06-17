@@ -35,16 +35,13 @@ function CoffeeMachine(coffee){
 
   //Добавление кофе
   this.newCoffee = function(name_,price_){
-    var newCof = {
-      name:name_,
-      price:price_,
-      sugar:5,
-    }
+    var newCof = new Coffee(name_,price_)
     this.coffeeList.push(newCof);
     document.getElementById('coffee-container').innerHTML += (
         `<li>
             <input
             type="submit"
+            data-index=${this.coffeeList.length-1}
             value="${newCof.name}"
             class="coffeeItem">
             <span class='coffeePrice'>${newCof.price}</span>

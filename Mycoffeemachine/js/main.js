@@ -16,6 +16,10 @@ $('#coffeeAdd').on('click',function(){
   var price = $('#coffeePriceAdd').val();
   console.log(name);
   MyCoffeeMachine.newCoffee(name,price);
+  //переопределяет обработчик событий для кнопок(то же самое что с 25 по 31 строку)
+  $('.coffeeItem').on('click',function(mouse) {
+    MyCoffeeMachine.coffeeSelect(MyCoffeeMachine.coffeeList[mouse.target.dataset.index]);
+  })
 });
 
 //определяет выделенный кофе
@@ -46,5 +50,3 @@ document.getElementById('btnback').addEventListener('click', function(){
   MyCoffeeMachine.cashGiveBackFunction();
   console.log(MyCoffeeMachine.coffeeList);
 });
-
-
