@@ -25,6 +25,15 @@ function CoffeeMachine(coffee){
             <span class='coffeePrice'>${this.price}</span>
         </li>`);
     });
+    document.getElementById('coffee-container').innerHTML += (`
+      <li>
+        <input
+        type="input"
+        data-index=${1212}
+        value=""
+        class="coffeeItem">
+        <span class='coffeePrice'>${this.price}</span>
+      </li>`);
   }
 
   //Выбор кофе
@@ -48,7 +57,7 @@ function CoffeeMachine(coffee){
   }
 
   //готовит кофе считает деньги
-  var CoffeeReady = function(coffeeSelected,cashGiveBack){
+  function CoffeeReady(coffeeSelected,cashGiveBack){
     document.getElementById('displayCoffee').innerHTML = 'Наливаю';
     document.getElementById('displayMoney').innerHTML ='';
     setTimeout(function(){
