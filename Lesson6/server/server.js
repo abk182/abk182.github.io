@@ -9,10 +9,16 @@ application.get('/hello', function(request, response) {
 	response.send('Hello World!');
 })
 
-application.use('/', express.static(path.join(__dirname, '../public/')))
+// application.use('/', express.static(path.join(__dirname, '../public/')))
 
-application.get('/html', function(request, response) {
-	response.sendFile(path.join(__dirname, '../public/index.html'));
+// application.get('/html', function(request, response) {
+// 	response.sendFile(path.join(__dirname, '../public/index.html'));
+// })
+
+application.use('/', express.static(path.join(__dirname, '../../Mycoffeemachine/')))
+
+application.get('/coffee', function(request, response) {
+	response.sendFile(path.join(__dirname, '../../Mycoffeemachine/index.html'));
 })
 
 application.get('/list', function(request, response) {
