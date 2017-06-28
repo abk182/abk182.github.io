@@ -22,6 +22,18 @@ router.delete('/delete/:id', (req,res)=>{
 	res.send('success');
 })
 
+router.put('/put/:id', (req,res)=>{
+	req.body['id']=req.params.id;
+	console.log(req.body);
+	userList.map( function (item) {
+		if (item['id']==req.params['id']){
+			userList.splice(userList.indexOf(item),1,req.body);
+		};
+	})
+	console.log(userList);
+	res.send('success');
+})
+
 
 
 module.exports = router;
