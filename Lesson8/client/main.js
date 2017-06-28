@@ -64,15 +64,16 @@ let deleteUser = (id) =>{
 
 //Запрос на изменение
 let editUser = (id) =>{
-	let name = prompt("Имя",0);
-	let age = prompt("Возраст",0);
-	console.log(name);
-	request
-		.put('/put/'+id)
-		.send({name: name, age: age})
-		.end((err,res)=>{
-			if(res.text=='success'){renderList();}else{console.log(err)};
+	let name = prompt("Имя","");
+	let age = prompt("Возраст",'');
+	if(name!= null && age!= null){
+		request
+			.put('/put/'+id)
+			.send({id: id, name: name, age: age})
+			.end((err,res)=>{
+				if(res.text=='success'){renderList();}else{console.log(err)};
 		})
+	}
 }
 
 renderList();

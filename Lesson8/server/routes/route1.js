@@ -23,8 +23,6 @@ router.delete('/delete/:id', (req,res)=>{
 })
 
 router.put('/put/:id', (req,res)=>{
-	req.body['id']=req.params.id;
-	console.log(req.body);
 	userList.map( function (item) {
 		if (item['id']==req.params['id']){
 			userList.splice(userList.indexOf(item),1,req.body);
