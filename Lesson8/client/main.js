@@ -1,4 +1,4 @@
-import {User} from './classes/user.js'
+import {User,Admin} from './classes/user.js'
 import request from 'superagent'
 import $ from 'jquery'
 
@@ -9,9 +9,10 @@ request
 	.end((err,res)=>{
 		document.getElementById('user-list').innerHTML = '';
 		res.body.forEach((item,index) =>{
-			new User(item.name,item.age).renderUser(item.id);
+			new User(item).renderUser(item.id);
 		});
-		deleteBtn(res.body.length);
+		new Admin().walkLikeAdmin();
+		btns(res.body.length);
 	});
 // $.ajax({
 // 	type: 'GET',
@@ -42,7 +43,7 @@ request
 })
 
 //Обработчик кнопок "Х" и "Е"
-let deleteBtn = (list) => {
+let btns = (list) => {
 	for(let i=0; i<list;i++){
 		document.getElementsByClassName('delete')[i].addEventListener('click',function(e){
 			deleteUser(e.target.dataset.id);
