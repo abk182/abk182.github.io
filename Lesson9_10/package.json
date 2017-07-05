@@ -1,0 +1,23 @@
+{
+  "name": "lesson8",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch",
+    "server-dev": "nodemon server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1",
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "webpack": "^3.0.0"
+  },
+  "description": ""
+}
