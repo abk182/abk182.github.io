@@ -1,6 +1,7 @@
 import React from 'react';
-import { getUsers,addUser } from './../requests/request.js'
-import { User } from './user.jsx'
+import { getUsers } from './../requests/request.js'
+import { Users } from './users.jsx'
+import { AddUserStupidComponent } from './adduser.jsx'
 
 export default class App extends React.Component{
 	constructor(props){
@@ -8,18 +9,22 @@ export default class App extends React.Component{
 		this.state = {
 			userList: [],
 			usersFiltered:[],
-			userName: ''
+			newUser: {
+				name:'',
+				age:''
+			}
 		};
 	}
 
 	componentDidMount(){
-		alert('Монтируется');
-		getUsers().then(userList => {
-			this.setState({userList});
+		// alert('Монтируется');
+		getUsers().then((userList,usersFiltered) => {
+			usersFiltered=userList;
+			this.setState({userList,usersFiltered});
 		});
 	}
 
-	setUserName(e){
+	searchUser(e){
 		let name = e.target.value;
 		console.log(name);
 		let userList = this.state.userList;
@@ -35,24 +40,18 @@ export default class App extends React.Component{
 			return lowName.indexOf(lowValue) != -1;
 		})
 
-		if(!usersFiltered.length) usersFiltered = userList;
-
-		console.log(usersFiltered);
+		if(!usersFiltered.length && !name) usersFiltered = userList;
 		this.setState({usersFiltered});
 	}
 
 	render(){
-		alert('Рендерится');
-		const {userList} = this.state;
-		console.log(this.state);
+		// alert('Рендерится');
+		// console.log(this.state);
 		return (
 			<div>
-				<input onChange={(e) => this.setUserName(e)} placeholder="find user"/>
-				<ul>
-					{userList.map(item => {
-						return <User name={item.name} age={item.age} key={item.id} />
-					})}
-				</ul>
+				<input onChange={(e)=>this.searchUser(e)} placeholder="find user"/>
+				<Users appp={this}/>
+				<AddUserStupidComponent app={this}/> 
 			</div>
 			);
 	}
