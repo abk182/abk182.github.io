@@ -8,13 +8,17 @@ import { Reducer_1 } from './reducers/reducer.js'
 import { getUsers } from './requests/request.js'
 
 const store = createStore(Reducer_1);
-console.log(store.getState());
 
-//запрос на сервер
+const NewUser={id:23,name:'Kek',age:24};
+// запрос на сервер
 getUsers().then((UsersList) => {
-	console.log(UsersList);
-	store.dispatch({type:'GET_USERS', UsersList})
+	store.dispatch({type:'GET_USERS', UsersList});
+	store.dispatch({type:'ADD_USER', NewUser})
 });
+
+
+
+
 
 ReactDOM.render(
 	<Provider store={store}>
