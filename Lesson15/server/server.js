@@ -11,6 +11,6 @@ app.get('/list', require('./routes/route1.js'));
 app.post('/add_user', require('./routes/route1.js'));
 app.delete('/delete/:id', require('./routes/route1.js'));
 app.put('/put/:id', require('./routes/route1.js'));
-app.get('*',(req,res)=> {res.send('Не найдено')});
+app.get('*',(req,res)=> {res.send('Не найдено ничего')});
 
 app.listen(3000,console.log('Server on 3000'));
