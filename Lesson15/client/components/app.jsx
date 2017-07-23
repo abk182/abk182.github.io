@@ -1,23 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getUsers } from '../requests/request.js'
-import { users } from '../action/actions.js'
+import { getUsers,deleteUser,editUser } from '../requests/request.js' //импорт запросов
+import { users } from '../action/actions.js' //импорт экшнов
+import { Users } from './users.jsx' //импорт компоненты
 
-const mapStateToProps =	state => (state);
+const mapStateToProps =	(state) => (state);
 
-const mapDispatchToProps = dispatch => {
-    const NewUser={id:23,name:'Kek',age:24};
-    getUsers().then((UsersList) => {
+const mapDispatchToProps = dispatch => ({
+    getUsers: ()=> getUsers().then((UsersList) => { //запрос GET
         dispatch(users.getUsers(UsersList));
-        dispatch(users.addUser(NewUser));
-    });
-    return{}
-};
-
-// const mapDispatchToProps = dispatch => ({
-//     getUsers: () => dispatch(users.getUsers())
-// })
+    }),
+	deleteUser: (UserId) => deleteUser(UserId)
+        .then(responseBody =>{
+			dispatch(users.deleteUser(responseBody));
+        })
+        .catch(error => {
+            console.log(error);
+        }),
+	editUser: (UserId) => editUser(UserId)
+        .then(responseBody =>{
+			dispatch(users.editUser(responseBody))
+        })
+        .catch(error => {
+            alert('Empty Field');
+        })
+})
 
 
 class App extends React.Component {
@@ -26,16 +34,17 @@ class App extends React.Component {
 
 	}
 
+    componentDidMount() {
+        // alert('Монтируется');
+        this.props.getUsers();
+    }
+
+
 	render(){
-        console.log(this.props);
+	    // alert('render');
+        console.log('App porps', this.props);
 		return(
-			<ul>
-			{
-				this.props.UsersList.map((item,index) =>{
-					return(<li key={item.id}>{item.name}</li>)
-				})
-			}
-			</ul>
+			<Users appp={this.props}/>
 		)
 	}
 }

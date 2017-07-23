@@ -14,14 +14,14 @@ router.get('/list', (req, res) => {
 router.post('/add_user', (req, res) => {
 	if(req.body.name!='' && req.body.age!=''){
 		let newUser=req.body;
-		newUser.id= "'"+ new Date() +"'";
+		newUser.id= +new Date();
 		userList.push(newUser);
-		// fs.writeFileSync(path.join(__dirname,'../userlist.json'), JSON.stringify(userList));	
+		// fs.writeFileSync(path.join(__dirname,'../userlist.json'), JSON.stringify(userList));
 		res.send(req.body);
 	}else{
 		console.log(req.body);
 		res.send("Empty field");
-	}	
+	}
 })
 
 router.delete('/delete/:id', (req,res)=>{

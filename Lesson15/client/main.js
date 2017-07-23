@@ -8,6 +8,7 @@ import { Reducer_1 } from './reducers/reducer.js'
 
 
 const store = createStore(Reducer_1);
+console.log('Store init state', store.getState());
 
 
 
@@ -18,5 +19,5 @@ ReactDOM.render(
 	document.getElementById('root'));
 
 store.subscribe(()=>{
-    console.log('asdad');
+    console.log('store ', store.getState());
 });

@@ -1,42 +1,24 @@
 import React from 'react';
+
 import { deleteUser,editUser } from '../requests/request.js'
+import { users } from '../action/actions.js' //импорт экшнов
  
 export const Users = ({appp}) => {
+	console.log('Users props',appp);
 	return(
 	<ul>
-		{appp.state.usersFiltered.map(item => {
+		{appp.UsersList.map(item => {
 			return(
 				<li key={item.id}>
 				{item.name}, возраст {item.age} 
 				<input type="submit" value="X" 
 				onClick={
-					(e) => {
-						deleteUser(item.id) //удаление юзера(вынеси в отдельную функцию)
-							.then(responseBody =>{
-							let usersFiltered = responseBody;
-							appp.setState({usersFiltered});
-							// console.log(appp.state);
-							})
-							.catch(error => {
-								console.log(error);
-							})
-					}
+					(e) => {appp.deleteUser(item.id)}
 				}
 				/>
 				<input type="submit" value="..." 
 				onClick={
-					(e) => {
-						editUser(item.id) //изменение юзера(вынеси в отдельную функцию)
-							.then(responseBody =>{
-							let usersFiltered = responseBody;
-							appp.state.userList = responseBody;//не обязательный элемент для обновления userList
-							appp.setState({usersFiltered});
-							})
-							.catch(error => {
-								alert('Empty Field');
-								console.log(error);
-							})
-					}
+					(e) => {appp.editUser(item.id)}
 				}
 				/>	
 				</li>
