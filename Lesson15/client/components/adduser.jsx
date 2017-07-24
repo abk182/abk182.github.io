@@ -13,23 +13,14 @@ export const AddUserStupidComponent = ({app}) =>{
 function setUserData(e){
 	switch(e.target.id){
 		case 'name':
-			app.state.newUser.name = e.target.value;
+			app.NewUser.name = e.target.value;
 			break;
 		case 'age':
-			app.state.newUser.age = e.target.value;
+            app.NewUser.age = e.target.value;
 			break;
 		case 'add': 
-			let newUser = app.state.newUser;
-			let usersFiltered = app.state.usersFiltered;
-			addUser(newUser)
-				.then(feedBack =>{
-					usersFiltered.push(feedBack);
-					app.setState({usersFiltered});
-					// console.log(app.state);
-				})
-				.catch(error=> {
-					alert("Empty field");
-				})
+			let newUser = app.NewUser;
+			app.addUser(newUser);
 			break;
 		}
 	}

@@ -4,7 +4,11 @@ import { USERS } from './../consts/consts.js'
 
 
 export const Reducer_1 = (state={
-	UsersList: []
+	UsersList: [],
+    NewUser:{
+        name:'',
+        age:''
+    }
 },action) => {
 	console.log(action);
 	switch(action.type){

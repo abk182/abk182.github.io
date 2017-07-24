@@ -17,7 +17,7 @@ router.post('/add_user', (req, res) => {
 		newUser.id= +new Date();
 		userList.push(newUser);
 		// fs.writeFileSync(path.join(__dirname,'../userlist.json'), JSON.stringify(userList));
-		res.send(req.body);
+		res.send(userList);
 	}else{
 		console.log(req.body);
 		res.send("Empty field");

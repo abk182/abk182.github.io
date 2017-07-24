@@ -1,15 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getUsers,deleteUser,editUser } from '../requests/request.js' //импорт запросов
+import { getUsers,deleteUser,editUser,addUser } from '../requests/request.js' //импорт запросов
 import { users } from '../action/actions.js' //импорт экшнов
 import { Users } from './users.jsx' //импорт компоненты
+import { AddUserStupidComponent } from './adduser.jsx';
+
 
 const mapStateToProps =	(state) => (state);
 
 const mapDispatchToProps = dispatch => ({
-    getUsers: ()=> getUsers().then((UsersList) => { //запрос GET
-        dispatch(users.getUsers(UsersList));
+    getUsers: ()=> getUsers()
+		.then((UsersList) => {
+        	dispatch(users.getUsers(UsersList));
     }),
 	deleteUser: (UserId) => deleteUser(UserId)
         .then(responseBody =>{
@@ -24,8 +27,15 @@ const mapDispatchToProps = dispatch => ({
         })
         .catch(error => {
             alert('Empty Field');
+        }),
+	addUser: (newUser) => addUser(newUser)
+        .then(responseBody =>{
+        	dispatch(users.addUser(responseBody));
         })
-})
+        .catch(error=> {
+            alert("Empty field");
+        })
+});
 
 
 class App extends React.Component {
@@ -44,8 +54,11 @@ class App extends React.Component {
 	    // alert('render');
         console.log('App porps', this.props);
 		return(
-			<Users appp={this.props}/>
-		)
+			<div className="Main">
+				<Users appp={this.props}/>
+            	<AddUserStupidComponent app={this.props}/>
+			</div>
+    )
 	}
 }
 
