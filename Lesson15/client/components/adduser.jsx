@@ -1,7 +1,6 @@
-	import React from 'react'
-import { addUser } from './../requests/request.js'
+import React from 'react'
 
-export const AddUserStupidComponent = ({app}) =>{
+export const AddUserStupidComponent = ({props}) =>{
 	return (
 	<div>
 		<input type="text" id="name" onChange={(e)=>setUserData(e)} placeholder="Имя" />
@@ -13,14 +12,14 @@ export const AddUserStupidComponent = ({app}) =>{
 function setUserData(e){
 	switch(e.target.id){
 		case 'name':
-			app.NewUser.name = e.target.value;
+			props.NewUser.name = e.target.value;
 			break;
 		case 'age':
-            app.NewUser.age = e.target.value;
+            props.NewUser.age = e.target.value;
 			break;
 		case 'add': 
-			let newUser = app.NewUser;
-			app.addUser(newUser);
+			let newUser = props.NewUser;
+            props.addUser(newUser);
 			break;
 		}
 	}

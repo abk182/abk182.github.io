@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-class App extends React.Component {
+    class App extends React.Component {
 	constructor(props){
 		super(props);
 
@@ -55,8 +55,8 @@ class App extends React.Component {
         console.log('App porps', this.props);
 		return(
 			<div className="Main">
-				<Users appp={this.props}/>
-            	<AddUserStupidComponent app={this.props}/>
+				<Users props={this.props}/>
+            	<AddUserStupidComponent props={this.props}/>
 			</div>
     )
 	}
