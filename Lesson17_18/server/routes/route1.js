@@ -5,15 +5,24 @@ const express = require('express'),
 	  YouTubeModel= require('../model/modelYouTube');
 
 const file = fs.readFileSync(path.join(__dirname, '../userlist.json'));
-
 const userList = JSON.parse(file);
+
+let Oauth2Client;
+YouTubeModel.getAuth((auth)=>{
+	Oauth2Client= auth;
+});
+
 
 router.get('/list', (req, res) => {
   res.send(userList);
 });
 
 router.get('/videos', (req, res) => {
-    YouTubeModel.getToken(YouTubeModel.getChannel,'name');
+    YouTubeModel.getChannel(Oauth2Client).then(data => {
+        res.json(data);
+    }).catch(err => {
+        return console.log(err);
+    });
 });
 
 
