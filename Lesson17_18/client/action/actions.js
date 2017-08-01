@@ -1,4 +1,4 @@
-import { GET_USERS, DELETE_USER, ADD_USER, EDIT_USER } from "../consts/consts.js";
+import { GET_USERS, DELETE_USER, ADD_USER, EDIT_USER, GET_VIDEOS, SET_VIDEO_NAME } from "../consts/consts.js";
 
 export const getUsers = {
     pending: () => ({type: GET_USERS.GET_USERS_PENDING}),
@@ -23,3 +23,13 @@ export const editUser = {
     success: (UsersList) => ({type: EDIT_USER.EDIT_USER_SUCCESS, UsersList}),
     error: (error) => ({type: EDIT_USER.EDIT_USER_ERROR, error})
 };
+
+export const getVideos = {
+    pending: (name) => ({type: GET_VIDEOS.GET_VIDEOS_PENDING, name}),
+    success: (VideosList) =>({type: GET_VIDEOS.GET_VIDEOS_SUCCESS, VideosList}),
+    error: (error) => ({type: GET_VIDEOS.GET_VIDEOS_ERROR, error})
+};
+
+export const setVideoName = {
+    set: (name) => ({type: SET_VIDEO_NAME.SET_VIDEO_NAME, name})
+}

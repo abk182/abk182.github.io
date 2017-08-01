@@ -44,5 +44,19 @@ export const editUserRequest =(id)=>{
 				})
 		}
 	})
+};
 
+export const getVideosRequest = (name) => {
+    return new Promise((resolve,reject)=>{
+        request
+            .get('/videos')
+            .query({name: name})
+            .end((err,res)=>{
+                if(err) reject(err);
+
+                console.log(res.body);
+
+                resolve(res.body);
+            })
+    })
 }

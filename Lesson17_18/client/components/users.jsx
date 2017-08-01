@@ -1,7 +1,6 @@
 import React from 'react';
  
 export const Users = ({props}) => {
-	console.log('Users props',props);
 	return(
 	<ul>
 		{props.UsersList.map(item => {

@@ -1,4 +1,4 @@
-import { GET_USERS, DELETE_USER, ADD_USER, EDIT_USER } from './../consts/consts.js'
+import { GET_USERS, DELETE_USER, ADD_USER, EDIT_USER, GET_VIDEOS, SET_VIDEO_NAME } from './../consts/consts.js'
 
 
 
@@ -27,6 +27,10 @@ export const Reducer_1 = (state={
             return Object.assign({},state,{UsersList: action.UsersList});
         case EDIT_USER.EDIT_USER_ERROR:
             return state;
+        case SET_VIDEO_NAME.SET_VIDEO_NAME:
+            return Object.assign({},state,{videoName: action.name});
+        case GET_VIDEOS.GET_VIDEOS_SUCCESS:
+            return Object.assign({},state,{VideosList: action.VideosList});
 		default: return state;
 	}
 };

@@ -1,7 +1,8 @@
 const express = require('express'),
 	  path = require('path'),
 	  fs = require('fs'),
-	  router = express.Router();
+	  router = express.Router(),
+	  YouTubeModel= require('../model/modelYouTube');
 
 const file = fs.readFileSync(path.join(__dirname, '../userlist.json'));
 
@@ -10,6 +11,11 @@ const userList = JSON.parse(file);
 router.get('/list', (req, res) => {
   res.send(userList);
 });
+
+router.get('/videos', (req, res) => {
+    YouTubeModel.getToken(YouTubeModel.getChannel,'name');
+});
+
 
 router.post('/add_user', (req, res) => {
 	console.log(req.body)

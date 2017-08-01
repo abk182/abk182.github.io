@@ -1,8 +1,24 @@
-import { GET_USERS,DELETE_USER, ADD_USER, EDIT_USER } from '../consts/consts.js';
+import { GET_USERS,DELETE_USER, ADD_USER, EDIT_USER, GET_VIDEOS } from '../consts/consts.js';
 import { getUsers,deleteUser, addUser, editUser } from '../action/actions.js';
 import { takeLatest } from 'redux-saga';
 import { put, call, fork } from 'redux-saga/effects';
-import { getUsersRequest, deleteUserRequest, addUserRequest, editUserRequest } from "../requests/request";
+import { getUsersRequest, deleteUserRequest, addUserRequest, editUserRequest, getVideosRequest } from "../requests/request";
+import {getVideos} from "../action/actions";
+
+
+//запрос на видео
+function* fetchVideos({name}) {
+    try {
+        let users = yield call(getVideosRequest, name);
+        yield put(getVideos.success(users));
+    } catch(err) {
+        yield put(getVideos.error(err));
+    }
+}
+
+function* watchFetchVideos() {
+    yield* takeLatest(GET_VIDEOS.GET_VIDEOS_PENDING, fetchVideos);
+}
 
 //запрос на юзеров
 function* fetchUsers() {
@@ -66,6 +82,7 @@ export default function* forks() {
         fork(watchFetchUser),
         fork(watchDeleteUserMiddleware),
         fork(watchAddUserMiddleware),
-        fork(watchEditUserMiddleware)
+        fork(watchEditUserMiddleware),
+        fork(watchFetchVideos)
     ]
 }
