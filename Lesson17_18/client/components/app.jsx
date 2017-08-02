@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getUsers, deleteUser, addUser, editUser, getVideos, setVideoName } from '../action/actions.js' //импорт экшнов
 import { Users } from './users.jsx' //импорт компоненты
 import { AddUserStupidComponent } from './adduser.jsx';
+import { YouTubeVideos } from './youtubevideos.jsx';
 
 const mapStateToProps =	(state) => (state);
 
@@ -34,6 +35,7 @@ class App extends React.Component {
             	<AddUserStupidComponent props={this.props}/>
 				<input type="text" id="video" onChange={(e) => this.props.setVideoName(e.target.value)}/>
 				<input type="submit" onClick={() => this.props.getVideos(this.props.videoName)} />
+				<YouTubeVideos props={this.props}/>
 			</div>
     	)
 	}

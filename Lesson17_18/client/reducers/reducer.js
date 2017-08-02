@@ -7,7 +7,8 @@ export const Reducer_1 = (state={
     NewUser:{
         name:'',
         age:''
-    }
+    },
+    VideosList:[]
 },action) => {
 	console.log(action);
 	switch(action.type){
