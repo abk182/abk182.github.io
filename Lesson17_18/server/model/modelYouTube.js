@@ -25,13 +25,13 @@ exports.getAuth = function (fn) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-exports.getChannel = function(auth) {
+exports.getChannel = function(auth,name) {
     return new Promise((resolve, reject) => {
         var service = google.youtube('v3');
         service.channels.list({
             auth: auth,
             part: 'snippet,contentDetails,statistics',
-            forUsername: 'GoogleDevelopers'
+            forUsername: name
         }, function(err, response) {
             if (err) {
                 reject('The API returned an error: ' + err);
@@ -49,4 +49,27 @@ exports.getChannel = function(auth) {
             }
         });
     })
-}
+};
+
+exports.search = function(auth,name) {
+    return new Promise((resolve, reject) => {
+        var service = google.youtube('v3');
+        service.search.list({
+            auth: auth,
+            part: 'snippet',
+            q: name,
+            maxResults:20
+        }, function(err, response) {
+            if (err) {
+                reject('The API returned an error: ' + err);
+                return;
+            }
+            // console.log(response.items);
+            if (response.items.length == 0) {
+                reject('No video found');
+            } else {
+                resolve(response.items)
+            }
+        });
+    })
+};

@@ -7,9 +7,9 @@ const express = require('express'),
 const file = fs.readFileSync(path.join(__dirname, '../userlist.json'));
 const userList = JSON.parse(file);
 
-let Oauth2Client;
-YouTubeModel.getAuth((auth)=>{
-	Oauth2Client= auth;
+let auth;
+YouTubeModel.getAuth((Oauth2Client)=>{
+    auth = Oauth2Client;
 });
 
 
@@ -18,10 +18,11 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/videos', (req, res) => {
-    YouTubeModel.getChannel(Oauth2Client).then(data => {
+    YouTubeModel.search(auth,req.query.name).then(data => {
         res.json(data);
     }).catch(err => {
-        return console.log(err);
+    	console.log(err);
+        res.send(err);
     });
 });
 

@@ -54,7 +54,7 @@ export const getVideosRequest = (name) => {
             .end((err,res)=>{
                 if(err) reject(err);
 
-                console.log(res.body);
+                console.log(res.text);
 
                 resolve(res.body);
             })
