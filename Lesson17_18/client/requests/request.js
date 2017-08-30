@@ -53,9 +53,6 @@ export const getVideosRequest = (name) => {
             .query({name: name})
             .end((err,res)=>{
                 if(err) reject(err);
-
-                console.log(res.text);
-
                 resolve(res.body);
             })
     })

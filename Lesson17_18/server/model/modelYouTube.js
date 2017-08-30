@@ -58,7 +58,9 @@ exports.search = function(auth,name) {
             auth: auth,
             part: 'snippet',
             q: name,
-            maxResults:20
+            maxResults:20,
+            type:'video',
+            order:'viewCount'
         }, function(err, response) {
             if (err) {
                 reject('The API returned an error: ' + err);
